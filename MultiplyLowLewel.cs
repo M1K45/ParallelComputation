@@ -19,38 +19,29 @@ namespace Parallel_Computation
 
             for (int i = 0; i < numThreads; i++)
             {
-                threads[i] = new Thread(() => divide(i, numThreads, C, A, B));  
+                int threadIndex = i;
+                threads[i] = new Thread(() => divide(threadIndex, numThreads, C, A, B));
+                threads[i].Start();
             }
-
-            foreach (Thread x in threads) x.Start();
+            //foreach (Thread x in threads) x.Start();
             foreach (Thread x in threads) x.Join();
-
-
-
-
-
             return C;
 
         }
 
         static void divide(int threadIndex, int numThreads, Matrix<double>C, Matrix<double>A, Matrix<double>B) {
-            int elements = A.RowCount * B.ColumnCount;
-
-            for (int i = threadIndex; i < A.RowCount; i+= numThreads)
+            for (int row = threadIndex; row < A.RowCount; row+= numThreads)
             {
-                for (int j = 0; j < B.ColumnCount; j++) // Iteracja po kolumnach macierzy B
+                for (int col = 0;  col < B.ColumnCount; col++) // Iteracja po kolumnach macierzy B
                 {
                     double sum = 0;
-                    for (int k = 0; k < A.ColumnCount; k++) // Iteracja po elementach w wierszu A i kolumnie B
+                    for (int element = 0; element < A.ColumnCount; element++) // Iteracja po elementach w wierszu A i kolumnie B
                     {
-                        // sprawdzenie, czy to jest ten z kolei 
-
-                        sum += A[i, k] * B[k, j];
+                        sum += A[row, element] * B[element, col];
                     }
-                    C[i, j] = sum; // Zapisz wynik do C[i, j]
+                    C[row, col] = sum; // Zapisz wynik do C[i, j]
                 }
             }
-
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Parallel_Computation
 {
-    partial class Form1
+    partial class Save
     {
         /// <summary>
         ///  Required designer variable.
@@ -43,6 +43,7 @@
             richTextBoxData = new RichTextBox();
             checkBoxVisualize = new CheckBox();
             checkBoxLowLevel = new CheckBox();
+            clearButton = new Button();
             SuspendLayout();
             // 
             // textBoxSizeMatrix
@@ -109,7 +110,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(19, 161);
             label3.Name = "label3";
-            label3.Size = new Size(55, 15);
+            label3.Size = new Size(54, 15);
             label3.TabIndex = 7;
             label3.Text = "Matrix A ";
             // 
@@ -118,7 +119,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(318, 161);
             label4.Name = "label4";
-            label4.Size = new Size(51, 15);
+            label4.Size = new Size(50, 15);
             label4.TabIndex = 8;
             label4.Text = "Matrix B";
             // 
@@ -127,7 +128,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(564, 161);
             label5.Name = "label5";
-            label5.Size = new Size(96, 15);
+            label5.Size = new Size(94, 15);
             label5.TabIndex = 9;
             label5.Text = "Matrix C = A x B ";
             // 
@@ -178,11 +179,23 @@
             checkBoxLowLevel.Text = "low-level computation (default is high)";
             checkBoxLowLevel.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // clearButton
             // 
+            clearButton.Location = new Point(321, 2);
+            clearButton.Name = "clearButton";
+            clearButton.Size = new Size(75, 23);
+            clearButton.TabIndex = 18;
+            clearButton.Text = "Clear";
+            clearButton.UseVisualStyleBackColor = true;
+            clearButton.Click += clearButton_Click;
+            // 
+            // Save
+            // 
+            AccessibleName = "Save";
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(clearButton);
             Controls.Add(checkBoxLowLevel);
             Controls.Add(checkBoxVisualize);
             Controls.Add(richTextBoxData);
@@ -198,7 +211,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(textBoxSizeMatrix);
-            Name = "Form1";
+            Name = "Save";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
@@ -221,5 +234,6 @@
         private RichTextBox richTextBoxData;
         private CheckBox checkBoxVisualize;
         private CheckBox checkBoxLowLevel;
+        private Button clearButton;
     }
 }
