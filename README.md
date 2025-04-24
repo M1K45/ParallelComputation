@@ -22,6 +22,8 @@ Mnożenie macierzy zaimplementowano wykorzystując zarównao wątki nisko, jak i
 W celu porównania szybkości obliczeń w zależności od ilości wątków oraz implementacji wykonano testy: badano działanie programu dla liczby wątków od 1 do 8
 na następujących rozmiarach macierzy: 400, 500, 600, 700, 800. Wyniki podane w tabeli poniżej są średnią 10 wykonanych pomiarów.
 
+>Wszystkie wyniki podano w milisekundach
+
 ### Mnożenie macierzy 400x400
 
 | Wątki | Wysokopoziomowo | Niskopoziomowo |
